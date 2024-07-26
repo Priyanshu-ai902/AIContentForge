@@ -36,7 +36,7 @@ function SideNav() {
         console.log(path)
     },[])
     return (
-        <div className='border'>
+        <div className='border h-screen'>
             <div className=' flex border-b gap-3'>
                 <Image className='rounded-lg' src='https://cdn4.vectorstock.com/i/1000x1000/41/03/content-production-icon-on-white-vector-33264103.jpg' alt='logo' width={50} height={50} />
                 <span className='text-pink-600  font-semibold pt-4 text-lg'>AIContentForge
