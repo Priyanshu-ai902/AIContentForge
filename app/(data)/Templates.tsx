@@ -35,7 +35,7 @@ export default [
                 required: true
             },
             {
-                label: 'Enter blog outline',
+                label: 'Enter additional information',
                 field: 'textarea',
                 name: 'outline',
             }
@@ -56,7 +56,7 @@ export default [
                 required: true
             },
             {
-                label: 'Enter blog outline',
+                label: 'Enter additional information',
                 field: 'textarea',
                 name: 'outline',
             }
@@ -77,7 +77,7 @@ export default [
                 required: true
             },
             {
-                label: 'Enter blog outline',
+                label: 'Enter additional information',
                 field: 'textarea',
                 name: 'outline',
             }
@@ -98,7 +98,7 @@ export default [
                 required: true
             },
             {
-                label: 'Enter blog outline',
+                label: 'Enter additional information',
                 field: 'textarea',
                 name: 'outline',
             }
@@ -119,7 +119,7 @@ export default [
                 required: true
             },
             {
-                label: 'Enter blog outline',
+                label: 'Enter additional information',
                 field: 'textarea',
                 name: 'outline',
             }
@@ -140,7 +140,7 @@ export default [
                 required: true
             },
             {
-                label: 'Enter blog outline',
+                label: 'Enter additional information',
                 field: 'textarea',
                 name: 'outline',
             }
@@ -161,7 +161,7 @@ export default [
                 required: true
             },
             {
-                label: 'Enter blog outline',
+                label: 'Enter additional information',
                 field: 'textarea',
                 name: 'outline',
             }
@@ -182,7 +182,7 @@ export default [
                 required: true
             },
             {
-                label: 'Enter blog outline',
+                label: 'Enter additional information',
                 field: 'textarea',
                 name: 'outline',
             }
@@ -203,7 +203,7 @@ export default [
                 required: true
             },
             {
-                label: 'Enter blog outline',
+                label: 'Enter additional information',
                 field: 'textarea',
                 name: 'outline',
             }
@@ -224,7 +224,7 @@ export default [
                 required: true
             },
             {
-                label: 'Enter blog outline',
+                label: 'Enter additional information',
                 field: 'textarea',
                 name: 'outline',
             }
@@ -250,7 +250,7 @@ export default [
                 name: 'features',
             },
             {
-                label: 'Enter blog outline',
+                label: 'Enter additional information',
                 field: 'textarea',
                 name: 'outline',
             }
@@ -271,7 +271,7 @@ export default [
                 required: true
             },
             {
-                label: 'Enter blog outline',
+                label: 'Enter additional information',
                 field: 'textarea',
                 name: 'outline',
             }
@@ -292,9 +292,93 @@ export default [
                 required: true
             },
             {
-                label: 'Enter blog outline',
+                label: 'Enter additional information',
                 field: 'textarea',
                 name: 'outline',
+            }
+        ]
+    },
+    {
+        name: 'Website Headline Generator',
+        desc: 'An AI tool that generates catchy headlines for your website',
+        category: 'Website',
+        icon: 'https://cdn-icons-png.flaticon.com/128/857/857681.png',
+        aiprompt: 'Generate a catchy headline for a website based on the given description.',
+        slug: 'generate-website-headline',
+        form: [
+            {
+                label: 'Enter website description',
+                field: 'input',
+                name: 'description',
+                required: true
+            },
+            {
+                label: 'Enter additional details',
+                field: 'textarea',
+                name: 'details',
+            }
+        ]
+    },
+    {
+        name: 'Slogan Generator',
+        desc: 'An AI tool that generates catchy slogans for your brand or product',
+        category: 'Marketing',
+        icon: 'https://cdn-icons-png.flaticon.com/128/2667/2667309.png',
+        aiprompt: 'Generate a catchy slogan for the given brand or product.',
+        slug: 'generate-slogan',
+        form: [
+            {
+                label: 'Enter your brand or product name',
+                field: 'input',
+                name: 'brand_product',
+                required: true
+            },
+            {
+                label: 'Enter additional details',
+                field: 'textarea',
+                name: 'details',
+            }
+        ]
+    },
+    {
+        name: 'LinkedIn Post Generator',
+        desc: 'An AI tool that generates professional LinkedIn posts',
+        category: 'Social Media',
+        icon: 'https://cdn-icons-png.flaticon.com/128/174/174857.png',
+        aiprompt: 'Generate a professional LinkedIn post based on the given topic.',
+        slug: 'generate-linkedin-post',
+        form: [
+            {
+                label: 'Enter your LinkedIn post topic',
+                field: 'input',
+                name: 'topic',
+                required: true
+            },
+            {
+                label: 'Enter additional details',
+                field: 'textarea',
+                name: 'details',
+            }
+        ]
+    },
+    {
+        name: 'Resume Bullet Point Generator',
+        desc: 'An AI tool that generates impactful resume bullet points',
+        category: 'Career',
+        icon: 'https://cdn-icons-png.flaticon.com/128/3094/3094841.png',
+        aiprompt: 'Generate impactful resume bullet points based on the given job description.',
+        slug: 'generate-resume-bullet-points',
+        form: [
+            {
+                label: 'Enter job description',
+                field: 'textarea',
+                name: 'job_description',
+                required: true
+            },
+            {
+                label: 'Enter additional details',
+                field: 'textarea',
+                name: 'details',
             }
         ]
     },
@@ -302,33 +386,75 @@ export default [
         name: 'Press Release Generator',
         desc: 'An AI tool that generates professional press releases',
         category: 'Public Relations',
-        icon: 'https://cdn-icons-png.flaticon.com/128/5395/5395895.png',
-        aiprompt: 'Generate a professional press release based on the given topic.',
+        icon: 'https://cdn-icons-png.flaticon.com/128/2550/2550266.png',
+        aiprompt: 'Generate a professional press release based on the given event or announcement.',
         slug: 'generate-press-release',
         form: [
             {
-                label: 'Enter your press release topic',
+                label: 'Enter event or announcement',
                 field: 'input',
-                name: 'topic',
+                name: 'event_announcement',
                 required: true
             },
             {
-                label: 'Enter blog outline',
+                label: 'Enter additional details',
                 field: 'textarea',
-                name: 'outline',
+                name: 'details',
             }
         ]
     },
     {
-        name: 'Resume Bullet Point Generator',
-        desc: 'An AI tool that generates effective resume bullet points',
-        category: 'Career',
-        icon: 'https://cdn-icons-png.flaticon.com/128/4116/4116609.png',
-        aiprompt: 'Generate effective resume bullet points based on the given job role and responsibilities.',
-        slug: 'generate-resume-bullet-points',
+        name: 'Story Generator',
+        desc: 'An AI tool that generates creative stories',
+        category: 'Creative Writing',
+        icon: 'https://cdn-icons-png.flaticon.com/128/2913/2913968.png',
+        aiprompt: 'Generate a creative story based on the given prompt or idea.',
+        slug: 'generate-story',
         form: [
             {
-                label: 'Enter your job role',
+                label: 'Enter your story prompt or idea',
+                field: 'textarea',
+                name: 'prompt',
+                required: true
+            },
+            {
+                label: 'Enter additional details',
+                field: 'textarea',
+                name: 'details',
+            }
+        ]
+    },
+    {
+        name: 'Event Invitation Generator',
+        desc: 'An AI tool that generates formal invitations for events',
+        category: 'Event Planning',
+        icon: 'https://cdn-icons-png.flaticon.com/128/747/747545.png',
+        aiprompt: 'Generate a formal invitation for an event based on the given details.',
+        slug: 'generate-event-invitation',
+        form: [
+            {
+                label: 'Enter event details',
+                field: 'textarea',
+                name: 'event_details',
+                required: true
+            },
+            {
+                label: 'Enter additional details',
+                field: 'textarea',
+                name: 'details',
+            }
+        ]
+    },
+    {
+        name: 'Job Description Generator',
+        desc: 'An AI tool that generates detailed job descriptions',
+        category: 'Human Resources',
+        icon: 'https://cdn-icons-png.flaticon.com/128/3032/3032911.png',
+        aiprompt: 'Generate a detailed job description based on the given role and responsibilities.',
+        slug: 'generate-job-description',
+        form: [
+            {
+                label: 'Enter job role',
                 field: 'input',
                 name: 'job_role',
                 required: true
@@ -337,156 +463,42 @@ export default [
                 label: 'Enter job responsibilities',
                 field: 'textarea',
                 name: 'responsibilities',
+                required: true
             },
             {
-                label: 'Enter blog outline',
+                label: 'Enter additional details',
                 field: 'textarea',
-                name: 'outline',
+                name: 'details',
             }
         ]
     },
     {
-        name: 'LinkedIn Summary Generator',
-        desc: 'An AI tool that generates professional LinkedIn summaries',
-        category: 'Career',
-        icon: 'https://cdn-icons-png.flaticon.com/128/1384/1384072.png',
-        aiprompt: 'Generate a professional LinkedIn summary based on the given career details.',
-        slug: 'generate-linkedin-summary',
+        name: 'Business Plan Generator',
+        desc: 'An AI tool that generates detailed business plans',
+        category: 'Business',
+        icon: 'https://cdn-icons-png.flaticon.com/128/2920/2920413.png',
+        aiprompt: 'Generate a detailed business plan based on the given business idea and goals.',
+        slug: 'generate-business-plan',
         form: [
             {
-                label: 'Enter your career details',
+                label: 'Enter business idea',
+                field: 'input',
+                name: 'business_idea',
+                required: true
+            },
+            {
+                label: 'Enter business goals',
                 field: 'textarea',
-                name: 'career_details',
+                name: 'goals',
                 required: true
             },
             {
-                label: 'Enter blog outline',
+                label: 'Enter additional details',
                 field: 'textarea',
-                name: 'outline',
-            }
-        ]
-    },
-    {
-        name: 'Sales Pitch Generator',
-        desc: 'An AI tool that generates persuasive sales pitches',
-        category: 'Sales',
-        icon: 'https://cdn-icons-png.flaticon.com/128/15721/15721857.png',
-        aiprompt: 'Generate a persuasive sales pitch based on the given product or service.',
-        slug: 'generate-sales-pitch',
-        form: [
-            {
-                label: 'Enter your product or service',
-                field: 'input',
-                name: 'product_service',
-                required: true
-            },
-            {
-                label: 'Enter blog outline',
-                field: 'textarea',
-                name: 'outline',
-            }
-        ]
-    },
-    {
-        name: 'Slogan Generator',
-        desc: 'An AI tool that generates catchy slogans',
-        category: 'Marketing',
-        icon: 'https://cdn-icons-png.flaticon.com/128/16447/16447217.png',
-        aiprompt: 'Generate a catchy slogan based on the given product or service.',
-        slug: 'generate-slogan',
-        form: [
-            {
-                label: 'Enter your product or service',
-                field: 'input',
-                name: 'product_service',
-                required: true
-            },
-            {
-                label: 'Enter blog outline',
-                field: 'textarea',
-                name: 'outline',
-            }
-        ]
-    },
-    {
-        name: 'Coding Challenge Generator',
-        desc: 'An AI tool that generates coding challenges based on the given programming language and difficulty level',
-        category: 'Education',
-        icon: 'https://cdn-icons-png.flaticon.com/128/17335/17335727.png',
-        aiprompt: 'Generate a coding challenge based on the given programming language and difficulty level.',
-        slug: 'generate-coding-challenge',
-        form: [
-            {
-                label: 'Enter programming language',
-                field: 'input',
-                name: 'language',
-                required: true
-            },
-            {
-                label: 'Enter difficulty level (e.g., easy, medium, hard)',
-                field: 'input',
-                name: 'difficulty',
-                required: true
-            },
-            {
-                label: 'Enter blog outline',
-                field: 'textarea',
-                name: 'outline',
-            }
-        ]
-    },
-    {
-        name: 'Math Problem Generator',
-        desc: 'An AI tool that generates math problems based on the given topic and grade level',
-        category: 'Education',
-        icon: 'https://cdn-icons-png.flaticon.com/128/9517/9517330.png',
-        aiprompt: 'Generate math problems based on the given topic and grade level.',
-        slug: 'generate-math-problem',
-        form: [
-            {
-                label: 'Enter math topic (e.g., algebra, geometry)',
-                field: 'input',
-                name: 'topic',
-                required: true
-            },
-            {
-                label: 'Enter grade level',
-                field: 'input',
-                name: 'grade',
-                required: true
-            },
-            {
-                label: 'Enter blog outline',
-                field: 'textarea',
-                name: 'outline',
-            }
-        ]
-    },
-    {
-        name: 'History Quiz Generator',
-        desc: 'An AI tool that generates history quiz questions based on the given topic and difficulty level',
-        category: 'Education',
-        icon: 'https://cdn-icons-png.flaticon.com/128/6462/6462711.png',
-        aiprompt: 'Generate history quiz questions based on the given topic and difficulty level.',
-        slug: 'generate-history-quiz',
-        form: [
-            {
-                label: 'Enter history topic',
-                field: 'input',
-                name: 'topic',
-                required: true
-            },
-            {
-                label: 'Enter difficulty level (e.g., easy, medium, hard)',
-                field: 'input',
-                name: 'difficulty',
-                required: true
-            },
-            {
-                label: 'Enter blog outline',
-                field: 'textarea',
-                name: 'outline',
+                name: 'details',
             }
         ]
     }
-]
+];
+
+
