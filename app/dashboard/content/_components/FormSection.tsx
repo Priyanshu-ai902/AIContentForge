@@ -6,14 +6,15 @@ import Image from 'next/image';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
-import { Zap } from 'lucide-react';
+import { LoaderCircleIcon, Zap } from 'lucide-react';
 
 interface PROPS {
     selectedTemplate?: TEMPLATE;
-    userFormInput:any
+    userFormInput:any,
+    loading:boolean
 }
 
-function FormSection({ selectedTemplate , userFormInput}: PROPS) {
+function FormSection({ selectedTemplate , userFormInput, loading}: PROPS) {
 
     const [formData, setFormData] = useState<any>();
 
@@ -49,7 +50,11 @@ function FormSection({ selectedTemplate , userFormInput}: PROPS) {
                                     onChange={handleInputChange} /> : null}
                     </div>
                 ))}
-                <Button type='submit' className='gap-2 font-semibold'>Generate <Zap size={20} /> </Button>
+                <Button type='submit' className='gap-2 font-semibold'
+                disabled={loading}>
+                    {loading&&<LoaderCircleIcon className='animate-spin'/>}
+                    Generate <Zap size={20} /> 
+                    </Button>
             </form>
         </div>
     )
