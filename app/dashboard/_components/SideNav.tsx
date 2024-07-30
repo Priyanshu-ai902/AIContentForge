@@ -4,6 +4,7 @@ import { History, HomeIcon, Settings, Wallet2 } from 'lucide-react'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import React, { useEffect } from 'react'
+import UsageTrack from './UsageTrack'
 
 function SideNav() {
 
@@ -36,7 +37,7 @@ function SideNav() {
         // console.log(path)
     },[])
     return (
-        <div className='border h-screen'>
+        <div className='border h-screen relative'>
             <div className=' flex border-b gap-3'>
                 <Image className='rounded-lg' src='https://cdn4.vectorstock.com/i/1000x1000/41/03/content-production-icon-on-white-vector-33264103.jpg' alt='logo' width={50} height={50} />
                 <span className='text-pink-600  font-semibold pt-4 text-lg'>AIContentForge
@@ -51,6 +52,9 @@ function SideNav() {
                         <h2 className='text-lg'>{menu.name}</h2>
                     </div>
                 ))}
+            </div>
+            <div className="absolute bottom-0 left-0 w-full">
+                <UsageTrack/>
             </div>
         </div>
     )

@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import FormSection from '../_components/FormSection'
 import OutputSection from '../_components/OutputSection'
 import { TEMPLATE } from '../../_components/TemplateListSection'
@@ -13,6 +13,9 @@ import { db } from '@/utils/db'
 import { AIOutput } from '@/utils/schema'
 import { useUser } from '@clerk/nextjs'
 import moment from 'moment'
+import { TotalUsageContext } from '@/app/(context)/TotalUsageContext'
+import { useRouter } from 'next/navigation'
+
 
 interface PROPS {
     params: {
@@ -28,9 +31,16 @@ function CreateNewContent(props: PROPS) {
 
     const [aiOutput, setAiOutput] = useState<string>('');
 
-    const {user}=useUser()
+    const { user } = useUser();
+    const router=useRouter()
+    const { totalUsage, setTotalUsage } = useContext(TotalUsageContext)
 
     const GenerateAIContent = async (formData: any) => {
+        if (totalUsage >= 10000) {
+            console.log("please upgrade")
+            router.push('/dashboard/billing')
+            return;
+        }
         setLoading(true)
         const SelectedPrompt = selectedTemplate?.aiprompt;
 
@@ -47,16 +57,16 @@ function CreateNewContent(props: PROPS) {
         const result = await db.insert(AIOutput).values({
             formData: formData,
             templateSlug: slug,
-            aiResponse:aiResp,
-            createdBy:user?.primaryEmailAddress?.emailAddress,
-            createdAt:moment().format('DD/MM/yyyy'),
+            aiResponse: aiResp,
+            createdBy: user?.primaryEmailAddress?.emailAddress,
+            createdAt: moment().format('DD/MM/yyyy'),
 
         });
 
         console.log(result);
     }
 
-    
+
 
     return (
         <div className='p-4'>

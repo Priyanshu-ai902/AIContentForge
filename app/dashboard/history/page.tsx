@@ -17,11 +17,11 @@ async function HistoryPage() {
     };
 
     return (
-        <div className="max-w-4xl mx-auto p-6 bg-gray-100 rounded-lg shadow-lg">
+        <div className="max-w-4xl mx-auto p-6  rounded-lg shadow-lg">
             <h1 className="text-3xl font-bold mb-6 text-center">History</h1>
             
             <div className="overflow-x-auto">
-                <table className="w-full bg-white border border-gray-200 rounded-md shadow-md">
+                <table className="w-full h-screen rounded-md shadow-md">
                     <thead className="bg-gray-50 border-b border-gray-300">
                         <tr>
                             <th className="p-3 text-left">Template</th>
