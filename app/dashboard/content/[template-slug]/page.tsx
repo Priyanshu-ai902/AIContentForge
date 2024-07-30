@@ -56,26 +56,6 @@ function CreateNewContent(props: PROPS) {
         console.log(result);
     }
 
-    // const SaveInDb = async (formData: any, slug: string | undefined, aiResp: string) => {
-    //     if (!formData || !slug || !aiResp) {
-    //         console.error("Invalid data provided to SaveInDb.");
-    //         return;
-    //     }
-    //     const createdBy = user?.primaryEmailAddress?.emailAddress || "unknown";
-    //     const createdAt = moment().format('DD/MM/yyyy');
-    
-    //     try {
-    //         const result = await db.insert(AIOutput).values({
-    //             formData: formData,
-    //             templateSlug: slug,
-    //             aiResponse: aiResp,
-    //             createdBy: createdBy,
-    //             createdAt: createdAt,
-    //         });
-    //     } catch (error) {
-    //         console.error("Error saving to DB:", error);
-    //     }
-    // };
     
 
     return (
