@@ -27,7 +27,7 @@ function SideNav() {
         {
             name:'Setting',
             icon:Settings,
-            path:'/dashboard/setting'
+            path:'/dashboard/settings'
         },
     ]
 
