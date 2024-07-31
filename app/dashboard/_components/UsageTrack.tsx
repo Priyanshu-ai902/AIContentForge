@@ -1,23 +1,30 @@
 "use client"
 
 import { TotalUsageContext } from '@/app/(context)/TotalUsageContext';
+import { UpdateCreditUsageContext } from '@/app/(context)/UpdateCreditUsageContext';
 import { Button } from '@/components/ui/button'
 import { db } from '@/utils/db';
 import { AIOutput } from '@/utils/schema';
 import { useUser } from '@clerk/nextjs';
 import { eq } from 'drizzle-orm';
-import React, { use, useContext, useEffect} from 'react'
+import React, { use, useContext, useEffect } from 'react'
 
 function UsageTrack() {
 
   const { user } = useUser();
-  const {totalUsage, setTotalUsage} = useContext(TotalUsageContext)
-  
+  const { totalUsage, setTotalUsage } = useContext(TotalUsageContext)
+  const { updateCreditUsage, setUpdateCreditUsage } = useContext(UpdateCreditUsageContext);
+
 
 
   useEffect(() => {
     user && GetData();
   }, [user])
+
+  useEffect(() => {
+    user && GetData();
+  }, [updateCreditUsage && user])
+
 
   const GetData = async () => {
     {/* @ts-ignore */ }
@@ -45,7 +52,7 @@ function UsageTrack() {
         <div className="h-2 bg-white w-full rounded-full mt-3">
           <div className="h-2 bg-blue-400 rounded-full"
             style={{
-              width: (totalUsage/10000)*100+"%"
+              width: (totalUsage / 10000) * 100 + "%"
             }}></div>
 
         </div>
