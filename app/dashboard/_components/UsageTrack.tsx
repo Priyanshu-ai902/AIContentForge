@@ -40,7 +40,6 @@ function UsageTrack() {
       total = total + Number(element.aiResponse?.length)
     });
     setTotalUsage(total);
-    console.log(total);
   }
 
 
