@@ -33,14 +33,14 @@ function CreateNewContent(props: PROPS) {
     const [aiOutput, setAiOutput] = useState<string>('');
 
     const { user } = useUser();
-    const router=useRouter()
+    const router = useRouter()
     const { totalUsage, setTotalUsage } = useContext(TotalUsageContext)
-    const {updateCreditUsage,setUpdateCreditUsage}=useContext(UpdateCreditUsageContext)
+    const { updateCreditUsage, setUpdateCreditUsage } = useContext(UpdateCreditUsageContext)
 
 
 
     const GenerateAIContent = async (formData: any) => {
-        if (totalUsage >= 10000) {
+        if (totalUsage >= 13000) {
             console.log("please upgrade")
             router.push('/dashboard/billing')
             return;
@@ -69,15 +69,15 @@ function CreateNewContent(props: PROPS) {
 
         });
 
-        console.log(result);
+
     }
 
 
 
     return (
-        <div className='p-4'>
+        <div className='p-4 pt-28 bg-slate-950 h-screen text-white'>
             <Link href={"/dashboard"}>
-                <Button> <ArrowLeft /> Back</Button>
+                <Button className='bg-purple-500 hover:bg-purple-500'> <ArrowLeft /> Back</Button>
             </Link>
             <div className='grid grid-cols-1 md:grid-cols-3 gap-5 py-5'>
                 <FormSection selectedTemplate={selectedTemplate}

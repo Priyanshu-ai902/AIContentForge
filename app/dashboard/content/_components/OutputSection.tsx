@@ -18,10 +18,10 @@ function OutputSection({ aiOutput }: props) {
   }, [aiOutput])
 
   return (
-    <div className='bg-white shadow-lg border rounded-lg'>
+    <div className='bg-white text-black shadow-lg border rounded-lg'>
       <div className='flex justify-between items-center p-5'>
         <h2 className='font-medium text-lg'>Your Result</h2>
-        <Button className='flex gap-2'
+        <Button className='flex gap-2 bg-purple-500 hover:bg-purple-500'
         onClick={()=>navigator.clipboard.writeText(aiOutput)}><Copy className='w-4 h-4' /> Copy</Button>
       </div>
       <Editor

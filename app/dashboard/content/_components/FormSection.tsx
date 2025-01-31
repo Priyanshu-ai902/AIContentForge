@@ -34,7 +34,7 @@ function FormSection({ selectedTemplate , userFormInput, loading}: PROPS) {
             {/* @ts-ignore */}
             <Image src={selectedTemplate?.icon} alt='logo' width={70} height={70} />
             <h2 className='font-bold text-2xl mb-2 text-primary'>{selectedTemplate?.name}</h2>
-            <p className='text-gray-600 text-sm'>{selectedTemplate?.desc}</p>
+            <p className='text-gray-300 text-sm'>{selectedTemplate?.desc}</p>
 
             <form className='mt-6' onSubmit={onSubmit}>
                 {selectedTemplate?.form?.map((item, index) => (
@@ -50,7 +50,7 @@ function FormSection({ selectedTemplate , userFormInput, loading}: PROPS) {
                                     onChange={handleInputChange} /> : null}
                     </div>
                 ))}
-                <Button type='submit' className='gap-2 font-semibold'
+                <Button type='submit' className='gap-2 font-semibold bg-purple-600 hover:bg-purple-600'
                 disabled={loading}>
                     {loading&&<LoaderCircleIcon className='animate-spin'/>}
                     Generate <Zap size={20} /> 

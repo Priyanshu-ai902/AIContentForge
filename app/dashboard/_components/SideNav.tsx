@@ -37,23 +37,19 @@ function SideNav() {
     },[])
 
     return (
-        <div className='border h-screen relative'>
-            <div className=' flex border-b gap-3'>
-                <Image className='rounded-lg' src='https://cdn4.vectorstock.com/i/1000x1000/41/03/content-production-icon-on-white-vector-33264103.jpg' alt='logo' width={50} height={50} />
-                <span className='text-pink-600  font-semibold pt-4 text-lg'>AIContentForge
-                </span>
-            </div>
+        <div className='border h-screen relative pt-20 bg-gradient-to-r from-gray-800 to-slate-900'>
+            
             <div className=" mt-5">
                 {MenuList.map((menu,index)=>(
                     <div 
                         key={index} 
-                        className={`flex gap-2 mb-2 p-3 
-                        hover:bg-primary hover:text-white rounded-lg cursor-pointer items-center
-                        ${path==menu.path&&'bg-primary text-white'}`}
+                        className={`flex gap-4 mb-2 p-3 
+                        hover:bg-purple-500 hover:text-white rounded-lg cursor-pointer items-center
+                        ${path==menu.path&&'bg-purple-500 text-white'}`}
                         onClick={() => router.push(menu.path)} 
                     >
-                        <menu.icon className='h-6 w-6'/>
-                        <h2 className='text-lg'>{menu.name}</h2>
+                        <menu.icon className='h-7 w-7 text-purple-200 '/>
+                        <h2 className='text-xl text-yellow-50'>{menu.name}</h2>
                     </div>
                 ))}
             </div>

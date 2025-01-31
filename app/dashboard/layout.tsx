@@ -2,7 +2,6 @@
 
 import React, { useState } from 'react'
 import SideNav from './_components/SideNav';
-import Header from './_components/Header';
 import { TotalUsageContext } from '../(context)/TotalUsageContext';
 import { UpdateCreditUsageContext } from '../(context)/UpdateCreditUsageContext';
 
@@ -11,7 +10,7 @@ function layout({
 }: Readonly<{
     children: React.ReactNode;
 }>) {
-
+ 
     const [totalUsage, setTotalUsage] = useState<Number>(0);
     const [updateCreditUsage,setUpdateCreditUsage]=useState<any>()
 
@@ -23,7 +22,7 @@ function layout({
                         <SideNav />
                     </div>
                     <div className="md:ml-64">
-                        <Header />
+                        
                         {children}
                     </div>
 

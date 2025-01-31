@@ -9,49 +9,50 @@ import Typography from '@mui/joy/Typography';
 
 export default function LicenseCard() {
   return (
-    <Card
-    
-      variant="solid"
-      color="primary"
-      invertedColors
-      sx={{
-        display:'flex',
-        alignItems:'center',
-        justifyContent:'center',
-        boxShadow: 'lg',
-        width: 400,
-        maxWidth: '100%',
-        // to make the demo resizeable
-        overflow: 'auto',
-        resize: 'horizontal',
-      }}
-    >
-      <Box sx={{ display: 'flex', gap: 1 }}>
-        <Chip size="sm" variant="soft">
-          Sketch 55+
-        </Chip>
-        <Chip size="sm" variant="soft">
-          Figma
-        </Chip>
-      </Box>
-      <div>
-        <Typography level="h2">
-          $58{' '}
-          <Typography fontSize="sm" textColor="text.tertiary">
-            /month
+    <div className='bg-slate-900 pt-24 h-screen flex items-center justify-center'>
+      <Card
+        variant="solid"
+        color="primary"
+        invertedColors
+        sx={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          boxShadow: 'lg',
+          width: 400,
+          maxWidth: '100%',
+          overflow: 'auto',
+          resize: 'horizontal',
+        }}
+      >
+        <Box sx={{ display: 'flex', gap: 1 }}>
+          <Chip size="sm" variant="soft">
+            Sketch 55+
+          </Chip>
+          <Chip size="sm" variant="soft">
+            Figma
+          </Chip>
+        </Box>
+        <div>
+          <Typography level="h2">
+            $58{' '}
+            <Typography fontSize="sm" textColor="text.tertiary">
+              /month
+            </Typography>
           </Typography>
-        </Typography>
-      </div>
-      <CardContent>
-        <Typography level="title-lg">Individual License</Typography>
-        <Typography level="body-md">
-          This license allows you to use the Symbol System Design with unlimited
-          amount of personal and commercial projects.
-        </Typography>
-      </CardContent>
-      <CardActions>
-        <Button variant="solid">Purchase Now</Button>
-      </CardActions>
-    </Card>
+        </div>
+        <CardContent>
+          <Typography level="title-lg">Individual License</Typography>
+          <Typography level="body-md">
+            This license allows you to use the Symbol System Design with unlimited
+            amount of personal and commercial projects.
+          </Typography>
+        </CardContent>
+        <CardActions>
+          <Button variant="solid">Purchase Now</Button>
+        </CardActions>
+      </Card>
+    </div>
+
   );
 }

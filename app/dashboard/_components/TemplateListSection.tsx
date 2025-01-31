@@ -28,13 +28,13 @@ function TemplateListSection({ userSearchInput }: any) {
     if(userSearchInput){
       const filterData=Templates.filter(item=>item.name.toLowerCase().includes(userSearchInput.toLowerCase()))
       setTemplateList(filterData)
-    }
+    } 
     else{
       setTemplateList(Templates)
     }
   }, [userSearchInput])
   return (
-    <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5 p-5'>
+    <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-5 p-5 bg-slate-900 min-h-screen overflow-auto '>
       {templateList.map((item: TEMPLATE, index: number) => (
         <TemplateCard key={index} {...item} />
       ))}
