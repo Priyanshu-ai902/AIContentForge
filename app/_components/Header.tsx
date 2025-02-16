@@ -32,7 +32,7 @@ function Header() {
         {isSignedIn ? (
           <div className='flex items-center gap-5'>
             <Link href={'/dashboard'}>
-              <Button className='bg-purple-500'>DashBoard</Button>
+              <Button className='bg-purple-500  hover:bg-purple-500'>DashBoard</Button>
             </Link>
             <UserButton />
           </div>

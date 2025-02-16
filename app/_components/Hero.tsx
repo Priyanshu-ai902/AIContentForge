@@ -1,98 +1,131 @@
-import React from "react";
+import React from 'react'
 
-const Hero: React.FC = () => {
+const stepsData = [
+  {
+    number: 1,
+    heading: "Launch tool",
+    description:
+      "Open the AI content generating tool by clicking the button in the banner at the top of the page.",
+  },
+  {
+    number: 2,
+    heading: "Enter your prompt",
+    description:
+      "Type a few words into the box to describe the text you want to create. For the best results, add detailed phrases.",
+  },
+  {
+    number: 3,
+    heading: "Produce quality content",
+    description:
+      "Click Generate AI text to transform your text prompt into AI-generated text.",
+  },
+  {
+    number: 4,
+    heading: "Add to canvas",
+    description:
+      "When you’re done generating text, click Add to canvas to instantly add your AI text to a blank canvas or image.",
+  },
+  {
+    number: 5,
+    heading: "Download it",
+    description:
+      "Click the Export button to download and share your designs.",
+  },
+];
+
+
+export default function Hero() {
   return (
-    <div className=" bg-gradient-to-b from-gray-900 to-black text-gray-100">      <section className="bg-gradient-to-r from-blue-700 to-purple-600 text-white py-20 text-center">
-        <div className="max-w-4xl mx-auto px-4">
-          <h1 className="text-5xl font-bold">Create Smart Forms with AI</h1>
-          <p className="mt-4 text-lg">
-            Jotform AI lets you generate fully customizable forms in seconds.
-          </p>
-          <button className="mt-6 px-6 py-3 bg-white text-blue-600 font-medium rounded-lg shadow-md hover:bg-gray-200">
-            Get Started for Free
+    <div>
+      <section className="bg-gradient-to-r from-black to-slate-800 text-white py-52">
+        <div className="flex px-10">
+          <div className="w-1/2 pr-10">
+            <h1 className="text-5xl font-bold mb-4">AI content generator: Quick and easy content creation</h1>
+            <p className="text-xl mb-8">
+              From social media captions to quotes, it has never been easier to streamline your creative process. Use the Picsart free AI content generator for all of your content creation needs. Try now with limited free generations.
+            </p>
+            <button className="bg-white text-purple-600 px-8 py-3 rounded-full font-semibold hover:bg-purple-100 transition duration-300">
+              Get Started
+            </button>
+          </div>
+
+          <div className="w-1/2 flex justify-center">
+            <img
+              src="imagep.png"
+              alt="AI Content Generator"
+              className="rounded-lg shadow-lg py-10"
+              style={{ width: '900px', height: '500px' }}
+            />
+          </div>
+        </div>
+      </section>
+
+      <section className=" py-52">
+        <div className="flex px-10">
+          <div className="w-1/2 flex justify-center">
+            <img
+              src="/path-to-your-image.jpg" // Replace with your image path
+              alt="AI Content Generator"
+              className="rounded-lg shadow-lg"
+            />
+          </div>
+          <div className="w-1/2 pr-10">
+            {stepsData.map((step, index) => (
+              <div
+                key={index}
+                className="group mb-6 p-4 border-l-4 border-purple-600 hover:bg-gray-100 transition duration-300 cursor-pointer"
+              >
+                <div className="flex items-center">
+                  <span className="text-2xl font-bold text-purple-600 mr-4">
+                    {step.number}
+                  </span>
+                  <h3 className="text-xl font-semibold">{step.heading}</h3>
+                </div>
+                <p className="mt-2 text-gray-600 ">
+                  {step.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20">
+        <div className="container mx-auto text-center">
+          <h2 className="text-3xl font-bold mb-12">Everything you can create with AI content generation</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="p-6 border rounded-lg shadow-lg">
+              <h3 className="text-xl font-semibold mb-4">AI Images</h3>
+              <p className="text-gray-600">Generate unique images with AI.</p>
+            </div>
+            <div className="p-6 border rounded-lg shadow-lg">
+              <h3 className="text-xl font-semibold mb-4">AI Videos</h3>
+              <p className="text-gray-600">Create engaging videos effortlessly.</p>
+            </div>
+            <div className="p-6 border rounded-lg shadow-lg">
+              <h3 className="text-xl font-semibold mb-4">AI Designs</h3>
+              <p className="text-gray-600">Design stunning graphics with AI.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="bg-gray-100 py-20">
+        <div className="container mx-auto text-center">
+          <h2 className="text-3xl font-bold mb-8">Start Creating Today</h2>
+          <button className="bg-purple-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-purple-700 transition duration-300">
+            Try It Now
           </button>
         </div>
       </section>
 
-      <section className="py-16">
-        <div className="max-w-5xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center">Why Use Jotform AI?</h2>
-          <div className="grid md:grid-cols-3 gap-8 mt-10">
-            <FeatureCard
-              title="Instant Form Generation"
-              description="Describe your form needs, and AI generates it instantly."
-            />
-            <FeatureCard
-              title="Drag-and-Drop Editing"
-              description="Easily customize fields, styles, and integrations."
-            />
-            <FeatureCard
-              title="Seamless Integrations"
-              description="Connect with popular tools like Google Sheets, Zapier, and more."
-            />
-          </div>
+      {/* Footer */}
+      <footer className="bg-gray-800 text-white py-10">
+        <div className="container mx-auto text-center">
+          <p>&copy; 2023 PicsArt AI Content Generator. All rights reserved.</p>
         </div>
-      </section>
-
-      <section className="bg-gradient-to-r from-gray-800 to-gray-900 py-16">
-        <div className="max-w-5xl mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold text-white">What Users Say</h2>
-          <div className="mt-10 space-y-6">
-            <Testimonial
-              text="Jotform AI saved me hours of work by generating a perfect form in seconds!"
-              author="Sarah Thompson, Small Business Owner"
-            />
-            <Testimonial
-              text="Super intuitive and easy to use. The AI-generated forms are a game-changer."
-              author="James Carter, HR Manager"
-            />
-          </div>
-        </div>
-      </section>
-
-      <section className="py-16 text-center bg-gradient-to-b from-gray-900 to-black">
-        <h2 className="text-3xl font-bold text-white">Start Building Forms with AI</h2>
-        <p className="mt-4 text-lg text-gray-300">
-          Sign up today and experience the power of Jotform AI.
-        </p>
-        <button className="mt-6 px-6 py-3 bg-purple-600 text-white font-medium rounded-lg shadow-md hover:bg-purple-700">
-          Sign Up for Free
-        </button>
-      </section>
-
-      <footer className="bg-gray-900 text-gray-400 py-10 text-center">
-        <p>&copy; {new Date().getFullYear()} Jotform AI. All rights reserved.</p>
       </footer>
     </div>
   );
-};
-
-interface FeatureCardProps {
-  title: string;
-  description: string;
 }
-
-const FeatureCard: React.FC<FeatureCardProps> = ({ title, description }) => {
-  return (
-    <div className="bg-gradient-to-b from-gray-800 to-gray-900 p-6 shadow-lg rounded-lg text-center text-white">
-      <h3 className="text-xl font-semibold">{title}</h3>
-      <p className="mt-2 text-gray-300">{description}</p>
-    </div>
-  );
-};
-
-interface TestimonialProps {
-  text: string;
-  author: string;
-}
-
-const Testimonial: React.FC<TestimonialProps> = ({ text, author }) => {
-  return (
-    <div className="bg-gradient-to-b from-gray-700 to-gray-800 p-6 shadow-lg rounded-lg text-white">
-      <p className="italic">"{text}"</p>
-      <p className="mt-4 font-semibold">{author}</p>
-    </div>
-  );
-};
-
-export default Hero;
