@@ -1,6 +1,46 @@
 "use client"
 
 import React, { useEffect, useState } from 'react'
+import { Apple, FacebookIcon, InstagramIcon, Linkedin, Play, Store, TwitterIcon, YoutubeIcon, } from "lucide-react";
+import Image from 'next/image';
+import { Button } from '@/components/ui/button';
+
+import { ChevronDown, ChevronUp } from "lucide-react";
+
+
+const faqs = [
+  {
+    question: "Can you generate AI content for free?",
+    answer:
+      "You can try our AI Content Generator with a limited number of free generations. For unlimited access, consider upgrading to a premium plan.",
+  },
+  {
+    question: "Can I generate visual content with AI tools?",
+    answer:
+      "Yes, our AI can generate stunning visuals, including banners, thumbnails, and AI-enhanced images for your projects.",
+  },
+  {
+    question: "Can I generate paragraphs with AI?",
+    answer:
+      "Absolutely! Our AI-powered generator can create high-quality paragraphs on any topic with just a few words as input.",
+  },
+  {
+    question: "Can I create quotes with AI?",
+    answer:
+      "Yes, you can generate engaging and inspirational quotes tailored to your needs.",
+  },
+  {
+    question: "Can I generate social media captions with AI?",
+    answer:
+      "Our AI can create catchy social media captions optimized for different platforms, including Instagram, Twitter, and Facebook.",
+  },
+  {
+    question: "Can you create marketing materials with AI?",
+    answer:
+      "Yes! You can generate ad copy, email templates, and product descriptions to enhance your marketing efforts.",
+  },
+];
+
 const stepsData = [
   {
     number: 1,
@@ -18,7 +58,7 @@ const stepsData = [
     number: 3,
     heading: "Add additional description",
     description:
-      "Click Generate AI text to transform your text prompt into AI-generated text.",
+      "Add additional descriptive details for better content generation",
   },
   {
     number: 4,
@@ -41,6 +81,14 @@ const images = [
 ];
 
 export default function Hero() {
+
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+
+  const toggleFAQ = (index: number) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
+
 
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -72,7 +120,7 @@ export default function Hero() {
               src="imagep.png"
               alt="AI Content Generator"
               className="rounded-lg shadow-lg py-10"
-              style={{ width: '900px', height: '560px' }}
+              style={{ width: '900px', height: '600px' }}
             />
           </div>
         </div>
@@ -148,24 +196,193 @@ export default function Hero() {
         </div>
       </section>
 
-      
 
-      
+      <section className="bg-white py-36">
+        <div className="flex px-12">
+          <div className="flex-1 pt-24">
+            <h2 className="text-5xl font-bold text-black">
+              Save time with AI content creation
+            </h2>
+            <p className="text-gray-700 mt-4 text-xl">
+              Keep track of all your AI-generated content in one place. Whether it's
+              creative captions, engaging blog intros, or persuasive marketing copy,
+              your previously generated text is securely stored here for easy access.
+              No more losing ideas—return anytime to refine, edit, or repurpose your
+              content as needed.
+              <br />
+              <br />
+              Whether you're working on a new project or revisiting past creations,
+              your history allows you to stay organized and build upon your previous
+              work. Download, share, or copy your saved content with just one click.
+              Keep your creativity flowing without starting from scratch every time!
+            </p>
 
-      <section className="bg-gray-100 py-20">
-        <div className="container mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-8">Start Creating Today</h2>
-          <button className="bg-purple-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-purple-700 transition duration-300">
-            Try It Now
-          </button>
+            {/* Button */}
+            <Button className="mt-6 bg-pink-500 hover:bg-pink-600 text-white px-6 py-3 rounded-lg">
+              Try AI content generator
+            </Button>
+          </div>
+
+          <div className="flex-1 flex justify-center">
+            <img src="history.png" alt="AI Writer" className="h-96 rounded-xl"
+              style={{ width: '900px', height: '560px' }} />
+          </div>
         </div>
       </section>
 
-      <footer className="bg-gray-800 text-white py-10">
-        <div className="container mx-auto text-center">
-          <p>&copy; 2023 PicsArt AI Content Generator. All rights reserved.</p>
+      <img src="price.png" alt="img" className='rounded-lg w-full'
+        style={{ height: "800px" }} />
+
+      <section className="max-w-3xl mx-auto py-16 px-6">
+        <h2 className="text-4xl font-bold text-center mb-8">
+          AI Content Generator FAQs
+        </h2>
+        <div className="space-y-4">
+          {faqs.map((faq, index) => (
+            <div
+              key={index}
+              className="border-b border-gray-300 py-4 cursor-pointer"
+              onClick={() => toggleFAQ(index)}
+            >
+              <div className="flex justify-between items-center">
+                <h3 className="text-lg font-medium">{faq.question}</h3>
+                {openIndex === index ? (
+                  <ChevronUp className="w-5 h-5" />
+                ) : (
+                  <ChevronDown className="w-5 h-5" />
+                )}
+              </div>
+              {openIndex === index && (
+                <p className="mt-2 text-gray-600">{faq.answer}</p>
+              )}
+            </div>
+          ))}
+
+        </div>
+      </section>
+
+
+      <footer className="bg-slate-950 text-white py-8">
+        <div className="container mx-auto px-6">
+          <div className="flex flex-wrap justify-between">
+            {/* Logo & App Links */}
+            <div className="mb-6">
+              <div className='flex items-center'>
+                <Image
+                  src="https://img.freepik.com/premium-psd/computer-social-media-content-3d-icon-design_557569-440.jpg"
+                  width={45}
+                  height={45}
+                  alt="logo"
+                  className="rounded-full"
+                />
+
+                <h1 className="ml-1 font-bold text-3xl bg-gradient-to-r from-purple-500 to-indigo-500 text-transparent bg-clip-text">
+                  Content-Forge
+                </h1>
+
+              </div>
+              <p className="mt-2 font-semibold">Get The Free App</p>
+              <div className="flex space-x-2 mt-2">
+                <button className="flex items-center space-x-2 border p-2 rounded-lg shadow-md">
+                  <Apple className="h-5 w-5" />
+                  <span>App Store</span>
+                </button>
+                <button className="flex items-center space-x-2 border p-2 rounded-lg shadow-md">
+                  <Play className="h-5 w-5" />
+                  <span>Google Play</span>
+                </button>
+                <button className="flex items-center space-x-2 border p-2 rounded-lg shadow-md">
+                  <Store className="h-5 w-5" />
+                  <span>Microsoft Store</span>
+                </button>
+
+              </div>
+            </div>
+
+            {/* Links */}
+            <div className="flex flex-wrap gap-12">
+              <div>
+                <h3 className="font-bold mb-3">Explore</h3>
+                <ul className="space-y-2">
+                  <li>Image Tools</li>
+                  <li>Video Tools</li>
+                  <li>Design Tools</li>
+                  <li>AI Tools</li>
+                  <li>Templates</li>
+                  <li>Colors</li>
+                  <li>Fonts</li>
+                </ul>
+              </div>
+
+              <div>
+                <h3 className="font-bold mb-3">Solutions</h3>
+                <ul className="space-y-2">
+                  <li>For Businesses</li>
+                  <li>For Developers</li>
+                  <li>For Google Drive</li>
+                  <li>For Specific Industries</li>
+                  <li>Quicktools</li>
+                  <li>AI Avatar</li>
+                  <li>Pricing</li>
+                </ul>
+              </div>
+
+              <div>
+                <h3 className="font-bold mb-3">Company</h3>
+                <ul className="space-y-2">
+                  <li>Support</li>
+                  <li>Careers</li>
+                  <li>About Us</li>
+                  <li>Affiliate Program</li>
+                  <li>Blog</li>
+                  <li>Press Center</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          {/* Social Icons & Legal Links */}
+          <div className="mt-8 flex flex-wrap justify-between items-center">
+            <div className="flex space-x-4">
+              <div className="flex space-x-3 mt-2">
+
+
+                <button className="flex items-center space-x-2 border p-2 rounded-lg shadow-md">
+                  <FacebookIcon className="h-5 w-5" />
+                </button>
+                <button className="flex items-center space-x-2 border p-2 rounded-lg shadow-md">
+                  <TwitterIcon className="h-5 w-5" />
+                </button>
+                <button className="flex items-center space-x-2 border p-2 rounded-lg shadow-md">
+                  <InstagramIcon className="h-5 w-5" />
+                </button>
+                <button className="flex items-center space-x-2 border p-2 rounded-lg shadow-md">
+                  <Linkedin className="h-5 w-5" />
+                </button>
+                <button className="flex items-center space-x-2 border p-2 rounded-lg shadow-md">
+                  <YoutubeIcon className="h-5 w-5" />
+                </button>
+              </div>
+            </div>
+
+          </div>
+
+          <div className="mt-6 text-sm text-center border-t pt-4">
+            <ul className="flex justify-center space-x-4">
+              <li>Terms of Use</li>
+              <li>Privacy Policy</li>
+              <li>Do Not Sell</li>
+              <li>Interest-Based Advertising</li>
+              <li>Community Guidelines</li>
+              <li>DMCA</li>
+              <li>Security Policy</li>
+            </ul>
+            <p className="mt-2">© 2025 PicsArt, Inc.</p>
+          </div>
         </div>
       </footer>
+
+
     </div>
   );
 }

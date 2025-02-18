@@ -4,7 +4,7 @@ const includedFeatures = [
   'Private forum access',
   'Member resources',
   'Entry to annual conference',
-  'Official member t-shirt', 
+  'Official member t-shirt',
 ]
 
 export default function Upgrade() {
@@ -15,16 +15,14 @@ export default function Upgrade() {
           <h2 className="text-3xl font-bold tracking-tight  sm:text-4xl">
             <br />Simple no-tricks pricing</h2>
           <p className="mt-6 text-lg leading-8 ">
-            Distinctio et nulla eum soluta et neque labore quibusdam. Saepe et quasi iusto modi velit ut non voluptas
-            in. Explicabo id ut laborum.
+            Get started with our all-in-one plan and unlock the full experience today!
           </p>
         </div>
         <div className="mx-auto max-w-2xl rounded-3xl ring-1 ring-gray-200 sm:mt-20 lg:mx-0 lg:flex lg:max-w-none">
           <div className="p-8 sm:p-10 lg:flex-auto">
             <h3 className="text-2xl font-bold tracking-tight ">Lifetime membership</h3>
             <p className="mt-6 text-base leading-7 ">
-              Lorem ipsum dolor sit amet consect etur adipisicing elit. Itaque amet indis perferendis blanditiis
-              repellendus etur quidem assumenda.
+              Unlock the full potential of our platform with our simple, all-in-one plan. Designed to provide you with everything you need, this plan gives you access to all features, premium support, and regular updates. No surprises, no hidden costs—just a seamless experience built to help you achieve your goals. Get started today and experience the best we have to offer at a transparent price.
             </p>
             <div className="mt-10 flex items-center gap-x-4">
               <h4 className="flex-none text-lg font-semibold leading-6 text-indigo-600">What’s included</h4>
