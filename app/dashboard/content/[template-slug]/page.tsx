@@ -59,18 +59,21 @@ function CreateNewContent(props: PROPS) {
         setUpdateCreditUsage(Date.now())
     }
 
-    const SaveInDb = async (formData: any, slug: any, aiResp: string) => {
-        const result = await db.insert(AIOutput).values({
-            formData: formData,
+    const SaveInDb = async (formData: any, slug: string | undefined, aiResp: string | undefined) => {
+        if (!user?.primaryEmailAddress?.emailAddress || !slug || !aiResp) {
+            console.error("Missing required fields for DB insert");
+            return;
+        }
+    
+        await db.insert(AIOutput).values({
+            formData: JSON.stringify(formData), // Ensure it's a string
             templateSlug: slug,
             aiResponse: aiResp,
-            createdBy: user?.primaryEmailAddress?.emailAddress,
+            createdBy: user.primaryEmailAddress.emailAddress, // Ensure it's defined
             createdAt: moment().format('DD/MM/yyyy'),
-
         });
-
-
-    }
+    };
+    
 
 
 

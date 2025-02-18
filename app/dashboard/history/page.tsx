@@ -1,4 +1,4 @@
-"use client";
+"use client"
 
 import { db } from '@/utils/db';
 import { AIOutput } from '@/utils/schema';
