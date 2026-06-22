@@ -12,37 +12,35 @@ function Header() {
   const path = usePathname();
 
   return  (
-    <div className='p-6 border-b shadow-sm fixed top-0 left-0 right-0  z-50 bg-gray-900'>
-      <div className='flex items-center justify-between'>
-        <div className='flex items-center'>
-          <Image
-            src="https://img.freepik.com/premium-psd/computer-social-media-content-3d-icon-design_557569-440.jpg"
-            width={45}
-            height={45}
-            alt="logo"
-            className="rounded-full"
-          />
-          <Link href={'/'}>
-            <h1 className="ml-1 font-bold text-3xl bg-gradient-to-r from-purple-500 to-indigo-500 text-transparent bg-clip-text">
-              Content-Forge
-            </h1>
-          </Link>
-        </div>
-
-        {isSignedIn ? (
-          <div className='flex items-center gap-5'>
-            <Link href={'/dashboard'}>
-              <Button className='bg-purple-500  hover:bg-purple-500'>DashBoard</Button>
-            </Link>
-            <UserButton />
-          </div>
-        ) : (
-          <SignInButton >
-            <Button>Get Started</Button>
-          </SignInButton>
-        )}
-
+    <div className='h-20 border-b border-slate-900/80 shadow-sm fixed top-0 left-0 right-0 z-50 bg-[#07090e]/90 backdrop-blur-md px-6 flex items-center justify-between'>
+      <div className='flex items-center'>
+        <Image
+          src="https://img.freepik.com/premium-psd/computer-social-media-content-3d-icon-design_557569-440.jpg"
+          width={45}
+          height={45}
+          alt="logo"
+          className="rounded-full"
+        />
+        <Link href={'/'}>
+          <h1 className="ml-1 font-bold text-3xl bg-gradient-to-r from-purple-500 to-indigo-500 text-transparent bg-clip-text">
+            Content-Forge
+          </h1>
+        </Link>
       </div>
+
+      {isSignedIn ? (
+        <div className='flex items-center gap-5'>
+          <Link href={'/dashboard'}>
+            <Button className='bg-purple-500  hover:bg-purple-500'>DashBoard</Button>
+          </Link>
+          <UserButton />
+        </div>
+      ) : (
+        <SignInButton >
+          <Button>Get Started</Button>
+        </SignInButton>
+      )}
+
     </div>
   )
 }

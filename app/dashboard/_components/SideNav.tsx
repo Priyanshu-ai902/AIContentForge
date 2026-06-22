@@ -1,64 +1,95 @@
 "use client"
 
 import { History, HomeIcon, Settings, Wallet2 } from 'lucide-react'
-import Image from 'next/image'
 import { usePathname, useRouter } from 'next/navigation' 
-import React, { useEffect } from 'react'
+import React from 'react'
 import UsageTrack from './UsageTrack'
+import { motion } from 'framer-motion'
 
-function SideNav() {
+interface SideNavProps {
+    onClose?: () => void;
+}
+
+function SideNav({ onClose }: SideNavProps) {
     const router = useRouter(); 
-    const MenuList=[
+    const path = usePathname();
+
+    const MenuList = [
         {
-            name:'Home',
-            icon:HomeIcon,
-            path:'/dashboard'
+            name: 'Home',
+            icon: HomeIcon,
+            path: '/dashboard'
         },
         {
-            name:'History',
-            icon:History,
-            path:'/dashboard/history'
+            name: 'History',
+            icon: History,
+            path: '/dashboard/history'
         },
         {
-            name:'Billing',
-            icon:Wallet2,
-            path:'/dashboard/billing'
+            name: 'Billing',
+            icon: Wallet2,
+            path: '/dashboard/billing'
         },
         {
-            name:'Setting',
-            icon:Settings,
-            path:'/dashboard/settings'
+            name: 'Settings',
+            icon: Settings,
+            path: '/dashboard/settings'
         },
     ]
 
-    const path = usePathname();
-    useEffect(()=>{
-        // console.log(path)
-    },[])
+    const handleNavigation = (targetPath: string) => {
+        router.push(targetPath);
+        if (onClose) {
+            onClose();
+        }
+    }
 
     return (
-        <div className='border h-screen relative pt-20 bg-gradient-to-r from-gray-800 to-slate-900'>
-            
-            <div className=" mt-5">
-                {MenuList.map((menu,index)=>(
-                    <div 
-                        key={index} 
-                        className={`flex gap-4 mb-2 p-3 
-                        hover:bg-purple-500 hover:text-white rounded-lg cursor-pointer items-center
-                        ${path==menu.path&&'bg-purple-500 text-white'}`}
-                        onClick={() => router.push(menu.path)} 
-                    >
-                        <menu.icon className='h-7 w-7 text-purple-200 '/>
-                        <h2 className='text-xl text-yellow-50'>{menu.name}</h2>
-                    </div>
-                ))}
+        <div className='h-full relative pt-6 md:pt-4 pb-6 px-4 bg-[#090d16]/90 backdrop-blur-md border border-slate-800/60 rounded-2xl flex flex-col justify-between text-slate-200 shadow-xl overflow-hidden'>
+            <div>
+                {/* Branding/Title inside sidebar (hidden on large if top header is enough, but nice for drawer) */}
+                <div className='px-3 mb-6 block md:hidden'>
+                    <h2 className='text-xl font-bold bg-gradient-to-r from-purple-500 via-indigo-400 to-cyan-400 text-transparent bg-clip-text'>
+                        Content-Forge
+                    </h2>
+                </div>
+
+                <div className="space-y-1">
+                    {MenuList.map((menu, index) => {
+                        const isActive = path === menu.path;
+                        return (
+                            <motion.div 
+                                key={index} 
+                                whileHover={{ x: 4, scale: 1.02 }}
+                                whileTap={{ scale: 0.98 }}
+                                className={`flex gap-3 px-4 py-3 rounded-xl cursor-pointer items-center transition-all duration-200 relative group
+                                ${isActive 
+                                    ? 'bg-gradient-to-r from-purple-500/10 to-cyan-500/5 text-purple-400 font-semibold border border-purple-500/20' 
+                                    : 'text-slate-400 hover:text-slate-100 hover:bg-slate-900/40'
+                                }`}
+                                onClick={() => handleNavigation(menu.path)} 
+                            >
+                                <menu.icon className={`h-5 w-5 transition-transform group-hover:scale-110 ${isActive ? 'text-purple-400' : 'text-slate-400 group-hover:text-slate-300'}`} />
+                                <span className='text-[15px]'>{menu.name}</span>
+                                {isActive && (
+                                    <motion.div 
+                                        layoutId="activeIndicator"
+                                        className="absolute left-0 top-3 bottom-3 w-[3px] bg-gradient-to-b from-purple-500 to-cyan-500 rounded-r-full"
+                                        transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                                    />
+                                )}
+                            </motion.div>
+                        )
+                    })}
+                </div>
             </div>
-            <div className="absolute bottom-0 left-0 w-full">
-                <UsageTrack/>
+
+            <div className="w-full">
+                <div className="my-4 border-t border-slate-900/60" />
+                <UsageTrack />
             </div>
         </div>
     )
 }
 
 export default SideNav
-
